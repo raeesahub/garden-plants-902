@@ -1,0 +1,26 @@
+<%= render @garden %>
+
+<div class="container">
+  <div class="row my-3">
+    <div class="col-8">
+      <h2 class="mb-3">My Plants</h2>
+      <div class="cards">
+        <% @garden.plants.each do |plant| %>
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(<%= plant.image_url %>)">
+            <%= plant.name %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-4">
+      <h2 class="mb-3">Add a new plant</h2>
+      <%= simple_form_for [@garden, @plant] do |f| %>
+        <%= f.input :name %>
+        <%= f.input :image_url %>
+        <%= f.submit class: 'btn btn-success' %>
+      <% end %>
+    </div>
+  </div>
+  <%= link_to "Back to gardens", gardens_path, class: 'btn btn-outline-success btn-sm mt-3' %>
+</div>
+
