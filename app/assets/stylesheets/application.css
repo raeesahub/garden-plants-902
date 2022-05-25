@@ -40,3 +40,9 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;
 }
+
+@media (max-width: 992px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
