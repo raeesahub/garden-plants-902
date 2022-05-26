@@ -1,6 +1,9 @@
 puts "Cleaning database..."
-Plant.destroy_all if Rails.env.development?
-Garden.destroy_all if Rails.env.development?
+
+if Rails.env.development?
+  Plant.destroy_all
+  Garden.destroy_all
+end
 
 puts "Creating gardens..."
 
